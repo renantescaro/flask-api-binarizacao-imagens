@@ -1,11 +1,13 @@
+from PIL import Image
 
 class BinarizacaoSv:
-    def __init__(self, linha, coluna, imagem_original, imagem_final, limiar):
-        self._linha  = linha
-        self._coluna = coluna
-        self._imagem = imagem_original
-        self._limiar = limiar
-        self.imagem_final = imagem_final
+    def __init__(self, linha, coluna, imagem_original, limiar):
+        self._pillow_obj = Image.new("RGB", (coluna, linha))
+        self._linha      = linha
+        self._coluna     = coluna
+        self._imagem     = imagem_original
+        self._limiar     = limiar
+        
         self.processar()
 
 
@@ -21,5 +23,5 @@ class BinarizacaoSv:
                 if int(r) > int(self._limiar):
                     cor = 255
 
-                self.imagem_final[j, i] = (cor, cor, cor)
-        return self.imagem_final
+                self._pillow_obj.putpixel((j, i), (cor, cor, cor))
+        self._pillow_obj.save('static/uploads/teste.png')
