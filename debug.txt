@@ -1,0 +1,3 @@
+25/05/2021 12:36:15: ImmutableMultiDict([])
+25/05/2021 12:40:12: <FileStorage: 'logo2.png' ('image/png')>
+25/05/2021 12:42:11: <FileStorage: 'eu.png' ('image/png')>
